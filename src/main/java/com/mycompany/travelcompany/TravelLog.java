@@ -18,17 +18,11 @@ import java.util.List;
 public class TravelLog {
     private static final List<String> logEntries = new ArrayList<>();
 
-    /**
-     * Aggiunge una voce al log dei viaggi.
-     * @param entry Voce da aggiungere.
-     */
     public static synchronized void addEntry(String entry) {
         logEntries.add(entry);
     }
 
-    /**
-     * Scrive il log dei viaggi su un file.
-     */
+
     public static void writeLog() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("travel_log.txt"))) {
             writer.write("Data odierna: " + LocalDate.now() + "\n");
